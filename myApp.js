@@ -7,19 +7,17 @@ const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
-let Person;
-const schema = mongoose.schema;
-const schemaOptions = {
-  timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
-};
+let Person
 
-const personSchema = new schema({
-name:{type: String, required: true},
-age:{ type: Number},
-favoriteFoods:[ String ]}, schemaOptions );
+const Schema = mongoose.Schema;
 
-Person = mongoose.model('person', personSchema, 'person');
+const personSchema = new Schema({
+  name: { type: String, required: true },
+  age: Number,
+  favoriteFoods: [String]
+});
 
+const Person = mongoose.model("Person", personSchema);
  /*-----------------------------------------------------------------------------*/
 
 
