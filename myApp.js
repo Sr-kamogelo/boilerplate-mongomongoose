@@ -6,20 +6,19 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
-function PersonModel (done){
+
 let Person;
-//The schema variable is to create an alias for the long mongoose schemea object
-const schema = mongoose.Schema;
+const schemaOptions = {
+  timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
+};
 
-//creating my own personal person object
 const personSchema = new schema({
-    name: {type:String, required:true},
-    age: Number,
-    favouriteFoods: [String]
-}); //My persons schema
+name:{type: String, required: true},
+age:{ type: Number},
+favoriteFoods:[ String ]}, schemaOptions );
 
-  Person =mongoose.model("person", personSchema);
-}
+Person = mongoose.model('person', personSchema, 'person');
+
  /*-----------------------------------------------------------------------------*/
 
 
