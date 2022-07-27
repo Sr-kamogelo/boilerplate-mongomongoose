@@ -6,7 +6,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
-
+function PersonModel (done){
 let Person;
 //The schema variable is to create an alias for the long mongoose schemea object
 const schema = mongoose.Schema;
@@ -18,8 +18,8 @@ const personSchema = new schema({
     favouriteFoods: [String]
 }); //My persons schema
 
- const PersonModel =mongoose.model("person", personSchema);
-
+  Person =mongoose.model("person", personSchema);
+}
  /*-----------------------------------------------------------------------------*/
 
 
