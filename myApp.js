@@ -8,11 +8,25 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 
 let Person;
+//The schema variable is to create an alias for the long mongoose schemea object
+const schema = mongoose.Schema;
+
+//creating my own personal person object
+const personSchema = new schema({
+    name: {type:String, required:true},
+    age: Number,
+    favouriteFoods: [String]
+}); //My persons schema
+
+ Person =mongoose.model("person", personSchema);
+
+ /*-----------------------------------------------------------------------------*/
 
 
-const createAndSavePerson = (done) => {
+
+function createAndSavePerson(done) {
   done(null /*, data*/);
-};
+}
 
 const createManyPeople = (arrayOfPeople, done) => {
   done(null /*, data*/);
