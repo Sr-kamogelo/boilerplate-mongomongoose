@@ -18,7 +18,7 @@ const personSchema = new schema({
     favouriteFoods: [String]
 }); //My persons schema
 
- Person =mongoose.model("person", personSchema);
+ const PersonModel =mongoose.model("person", personSchema);
 
  /*-----------------------------------------------------------------------------*/
 
