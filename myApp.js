@@ -12,7 +12,7 @@ let Person;
 const schema = mongoose.Schema;
 
 //creating my own personal person object
-Person = new schema({
+const personSchema = new schema({
     name: {type:String, required:true},
     age: Number,
     favouriteFoods: [String]
