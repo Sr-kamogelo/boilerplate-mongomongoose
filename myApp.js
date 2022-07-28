@@ -64,9 +64,9 @@ const findPeopleByName = (personName, done) => {
  * param food. Instead of using find we use Model.findOne() function simillar to find()
  */
 const findOneByFood = (food, done) => {
-  Person.findOne({favoriteFoods: food}, function(err, food){
+  Person.findOne({favoriteFoods: food}, function(err,  data){
       if (err)return console.log(err); 
-     done(null /*, data*/);
+     done(null, data);
    });
 };
 
