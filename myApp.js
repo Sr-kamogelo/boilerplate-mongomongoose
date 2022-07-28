@@ -48,6 +48,9 @@ const createManyPeople = (arrayOfPeople, done) => {
   });
 };
 
+/* 5) Model.find()
+ * the Model name is replaced by the model that you previously created in excersice 1
+ */
 const findPeopleByName = (personName, done) => {
   // The argument personName is an object I can use statically or Dynamicall, by entering a person`s as my search object
   Person.find({name: personName}, function(err, personFound){
@@ -56,9 +59,15 @@ const findPeopleByName = (personName, done) => {
   });
   
 };
-
+/** 6)
+ *In this document Iuse the search to find the food name which is the same as the find people search 
+ * param food. Instead of using find we use Model.findOne() function simillar to find()
+ */
 const findOneByFood = (food, done) => {
-  done(null /*, data*/);
+  Person.findOne({favoriteFoods: food}, function(err, food){
+      if (err)return console.log(err); 
+     done(null /*, data*/);
+   });
 };
 
 const findPersonById = (personId, done) => {
