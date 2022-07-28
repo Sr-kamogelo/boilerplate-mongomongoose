@@ -69,9 +69,17 @@ const findOneByFood = (food, done) => {
      done(null, data);
    });
 };
-
+/** 7)
+ * to find the only person having a given _id, using Model.findById() -> Person. 
+ * Use the function argument personId as the search key
+ * @param {*} personId 
+ * @param {*} done 
+ */
 const findPersonById = (personId, done) => {
-  done(null /*, data*/);
+  Person.findById( personId, function(err, data){
+      if (err) return console.log(err);
+     done(null, data);
+   });
 };
 
 const findEditThenSave = (personId, done) => {
