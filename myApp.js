@@ -14,7 +14,7 @@ const personSchema = new Schema({
   age: Number,
   favoriteFoods: [String]
 });
-
+//THis is the Model I created to use out during the entire process
 const Person = mongoose.model("Person", personSchema);
 
  /*-----------------------------------------------------------------------------*/
@@ -32,8 +32,20 @@ function createAndSavePerson(done) {
     });
 };
 
+
+//object carrying an array of people
+arrayOfPeople = [
+  {name:"jacob Isreal", age: 23, favoriteFoods:["unleavenBread", "fish", "yem"]},
+  {name:"kamogelo Oliphant", age: 22, favoriteFoods:["GarlicBread", "fish", "burger"]},
+  {name:"John Trevalto", age: 40, favoriteFoods:["sushi", "macaronni", "tacos"]}
+];
+
 const createManyPeople = (arrayOfPeople, done) => {
-  done(null /*, data*/);
+  //Inside this function I use the name of the previouse Model I created
+  Person.create(arrayOfPeople, function (err, people) {
+    if (err) return console.log(err);
+    done(null, people);
+  });
 };
 
 const findPeopleByName = (personName, done) => {
