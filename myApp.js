@@ -90,7 +90,7 @@ const findEditThenSave = (personId, done) => {
      if(err) return console.log(err);
 
       // Array.push() method to add "hamburger" to the list of the person's favoriteFoods
-     person.favoriteFood.push(foodToAdd);
+     person.favoriteFoods.push(foodToAdd);
 
      // and inside the find callback - save() the updated Person.
     person.save((err, updatedPerson) => {
