@@ -49,7 +49,12 @@ const createManyPeople = (arrayOfPeople, done) => {
 };
 
 const findPeopleByName = (personName, done) => {
-  done(null /*, data*/);
+  // The argument personName is an object I can use statically or Dynamicall, by entering a person`s as my search object
+  Person.find({name: personName}, function(err, personFound){
+    if (err) return console.log(err);
+    done(null, personFound);
+  });
+  
 };
 
 const findOneByFood = (food, done) => {
