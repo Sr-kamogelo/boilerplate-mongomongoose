@@ -133,7 +133,7 @@ const queryChain = (done) => {
   .select({ favoriteFoods: 0 })
   .exec(function(error, people) {
     if(err) return consolge.log(err);
-    done(null, people);
+    done(null, data);
   });
   
 };
