@@ -126,7 +126,7 @@ const removeManyPeople = (done) => {
 
 const queryChain = (done) => {
   const foodToSearch = "burrito";
-  YourQuery.exec.then(function(err, docs){
+  
     Person.find({ age: 55 })
   .sort({ name: 1 })
   .limit(5)
@@ -134,7 +134,6 @@ const queryChain = (done) => {
   .exec(function(error, people) {
     if(err) return consolge.log(err);
     done(null, people);
-  });
   });
   
 };
